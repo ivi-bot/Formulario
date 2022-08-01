@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var app = express();
 
-// view engine setup
+// view engine setup - tambien tipo de archivos
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -19,7 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//armado de rutas
 app.use('/', indexRouter);
+//si elimino las de abajo no puedo acceder 
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 // catch 404 and forward to error handler
