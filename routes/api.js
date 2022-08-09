@@ -7,13 +7,10 @@ router.get('/productos', function(req, res, next) {
     Producto.findAll({  
         attributes: { exclude: ["updatedAt"] }  
     })  
-    .then(productos => {  
-        res.render('vista', { arrResultado: productos });
-        res.json(productos)
-  
-    })     
+    .then(resultado => {  
+        res.json(resultado)
+    }) 
     .catch(error => res.status(400).send(error))    
     });
-
 
 module.exports = router;
