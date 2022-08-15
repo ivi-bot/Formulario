@@ -16,4 +16,14 @@ router.get('/productos', function(req, res, next) {
 })  
 .catch(error => res.status(400).send(error))    
 });
+
+router.get('/reporte', function(req, res, next) {  
+  Producto.findAll({  
+    attributes: { exclude: ["updatedAt"] }  
+})  
+.then(productos => {  
+    res.render('reporte', { title: 'My Dashboard :: Productos', arrProductos: productos });  
+})  
+.catch(error => res.status(400).send(error))    
+});
 module.exports = router;
