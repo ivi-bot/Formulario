@@ -1,3 +1,45 @@
+var express = require('express');
+var router = express.Router();
+const { initializeApp, applicationDefault } = require("firebase-admin/app");
+const { getFirestore } = require("firebase-admin/firestore");
+
+const firebase = require("firebase");
+
+firebase.initializeApp({
+    credential: firebase.credential.applicationDefault(),
+    databaseURL: "https://actividad20munoz-default-rtdb.firebaseio.com",
+
+});
+
+const db = firebase.getFirestore();
+
+router.get("/prueba", async (req, res) => {
+    try {
+      const querySnapshot = await db.collection("collection").get();
+      const contacts = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      res.render("prueba", { contacts });
+    } catch (error) {
+      console.error(error);
+    }
+  });
+
+/*
+initializeApp({
+  credential: applicationDefault(),
+});
+
+const db = getFirestore();
+*/
+module.exports = {
+  db,
+};
+
+
+
+
 /*
 
 const firebase = require("firebase");
