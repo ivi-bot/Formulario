@@ -1,14 +1,15 @@
 <main class="col-md-8 ms-sm-auto col-lg-10 px-md-4">
     <div class="table-responsive">
-        <div class="table-wrapper">
-
             <select name="select" class="custom-select custom-select-lg form-control " required="">
-                <option value="-1" selected="">Productos</option>
-                <% arrProductos.forEach(function(producto){ %>  
-                    <option value="-1" selected=""><%= producto.nombre %></option>
-                  <% }); %>            
-                </select>
+                <% arrProductos.forEach(function(producto){ %>
+                    <option value=<%= producto.id %>  selected="">
+                        <%= producto.nombre %>
+                    </option>
+                    <% }); %>
+            </select>
+            <div id="informacion" class="row">
+               
+            </div>
 
-
-              </div>  
-              </main>
+        </div>
+</main>

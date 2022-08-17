@@ -30,5 +30,4 @@ router.get('/productos', function(req, res, next) {
         }) 
         .catch(error => res.status(400).send(error))    
         });
-
 module.exports = router;

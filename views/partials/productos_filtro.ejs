@@ -16,19 +16,20 @@
       <thead>  
         <tr>  
           <th>#</th>  
-          <th>Nombre</th>  
-          <th>Cantidad</th>  
-          <th>Creado</th>  
-          <th>Action</th>  
+          <th>Comprador</th>  
+          <th>Fecha de compra</th>  
+          <th>Valor</th>  
+          <th>Acciones</th>  
         </tr>  
       </thead>  
       <tbody>  
-           <% arrProductos.forEach(function(producto){ %>  
-             <tr>  
-               <td><%= producto.id %></td>  
-               <td><%= producto.nombre %></td>   
-               <td><%= producto.cantidad %></td>  
-               <td><%= producto.createdAt.toLocaleDateString('en-US') %></td>  
+        <% arrCompradores.forEach(function(comprador){ %>  
+          <tr>  
+               <td><%= comprador.id %></td>  
+               <td><%= comprador.comprador.apellido %></td>   
+               <td><%= comprador.productoNombre %></td>  
+               <td><%= comprador.valor %></td>  
+               <td><%= comprador.fechaCompra.toLocaleDateString('en-US') %></td>  
                <td>  
                    <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>  
                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>  
