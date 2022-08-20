@@ -1,10 +1,11 @@
 <main class="col-md-8 ms-sm-auto col-lg-10 px-md-4">
+    <h2>Tabla de compradores por producto</h2>
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h2>Products</h2>
+                        <h2>Compradores</h2>
                     </div>
                     <div class="col-sm-7">
                         <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
@@ -23,19 +24,8 @@
         </tr>  
       </thead>  
       <tbody>  
-        <% arrCompradores.forEach(function(comprador){ %>  
-          <tr>  
-               <td><%= comprador.id %></td>  
-               <td><%= comprador.comprador.apellido %></td>   
-               <td><%= comprador.productoNombre %></td>  
-               <td><%= comprador.valor %></td>  
-               <td><%= comprador.fechaCompra.toLocaleDateString('en-US') %></td>  
-               <td>  
-                   <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>  
-                   <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>  
-               </td>  
-             </tr>  
-           <% }); %>  
+        <tr>   
+          </tr>  
        </tbody>  
    </table>  
    <div class="clearfix">

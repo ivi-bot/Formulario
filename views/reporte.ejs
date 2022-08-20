@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,19 +14,15 @@
         <%= title%>
     </title>
 </head>
-
 <body>
     <% include partials/header %>
-
-
         <div class="container-fluid">
             <div class="row">
                 <% include partials/nav %>
                     <!-- Producto tabla -->
                     <% include partials/select %>
-
-                        <% include partials/productos_tabla arrProductos=arrProductos %>
-
+                    <% include partials/productos_filtro %>
+                      <!--  <% include partials/productos_tabla arrProductos=arrProductos %>-->
             </div>
         </div>
         <!-- Optional JavaScript; choose one of the two! -->
@@ -47,107 +42,7 @@
             integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
             crossorigin="anonymous"></script>
         <script src="/javascripts/dashboard.js"></script>
-        <!--<script src="/javascripts/filtro.js"></script>-->
-
-        <!--
-        <script>
-
-            function gotData(data) {
-                let etiquetaSelect = document.querySelector('div.table-responsive > select');
-                etiquetaSelect.addEventListener('change', (event) => {
-                    console.log(etiquetaSelect);
-                    document.getElementById('informacion').innerHTML = "";                    
-                    cabecera = `
-                    <main id="new">
-                        <div class="table-responsive">
-                            <div class="table-wrapper">
-                                <div class="table-title">
-                                    <div class="row">
-                                        <div class="col-sm-5">
-                                            <h2>Compradores</h2>
-                                        </div>
-                                        <div class="col-sm-7">
-                                            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
-                                            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a>                       
-                                        </div>
-                                    </div>
-                                </div>
-                                <table class="table table-striped table-hover">  
-                                    <thead>  
-                                    <tr>  
-                                        <th>#</th>  
-                                        <th>Comprador</th>  
-                                        <th>Fecha de compra</th>  
-                                        <th>Valor</th>  
-                                        <th>Acciones</th>  
-                                    </tr>  
-                                    </thead>
-                                    <tbody id="add">  `;
-
-                    document.getElementById('informacion').innerHTML += cabecera;
-                    let id = event.target.value;
-                    let productoSeleccionado = "Producto " + (Number(id)-1).toString();
-                    /*
-                    var filtrado = dataFrases.frases.filter(d => d.id_autor == id);
-
-                    let arregloOption = etiquetaSelect.querySelectorAll('select > option');
-                    let filtroOption = Array.from(arregloOption).filter(d => d.value == id);
-                    let nombre = filtroOption[0].textContent;
-
-*/
-
-                    for (let i = 0; i < data.length; i++) {
-                        let productoTabla = data[i].productoNombre;
-                        console.log(productoSeleccionado + "y" +productoTabla );
-
-                        if (productoSeleccionado.toUpperCase() === productoTabla.toUpperCase()) {
-                            plantilla = `
-                                <tr>  
-                                    <td>${data[i].id}</td>  
-                                    <td>${data[i].comprador.nombre} ${data[i].comprador.apellido}</td>   
-                                    <td>${data[i].valor}</td>  
-                                    <td>${data[i].fechaCompra}</td>  
-                                    <td>  
-                                        <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>  
-                                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>  
-                                    </td>  
-                                    </tr>   
-                             `;
-                            document.getElementById('add').innerHTML += plantilla;
-                        }
-                     /*   else{
-                            document.getElementById('end').innerHTML = "";
-                            document.getElementById('new').innerHTML = "";
-
-                        }*/
-                    }               
-                    final = `
-                </tbody> 
-                    </table id="end">  
-                        <div class="clearfix">
-                        <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                        <ul class="pagination">
-                            <li class="page-item disabled"><a href="#">Previous</a></li>
-                            <li class="page-item"><a href="#" class="page-link">1</a></li>
-                            <li class="page-item"><a href="#" class="page-link">2</a></li>
-                            <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                            <li class="page-item"><a href="#" class="page-link">4</a></li>
-                            <li class="page-item"><a href="#" class="page-link">5</a></li>
-                            <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                        </ul>
-                        </div>
-                </div>
-                </div>  
-                </main>`;
-                    document.getElementById('informacion').innerHTML += final;
-
-                });               
-            }
-   
-
-        </script>
-        <script src="https://actividad20munoz-default-rtdb.firebaseio.com/collection.json?callback=gotData"></script>
--->
+        <script src="/javascripts/filtro.js"></script>
 </body>
 
 </html>
