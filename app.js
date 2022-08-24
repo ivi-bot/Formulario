@@ -13,17 +13,16 @@ var loginRouter = require('./routes/login');
 var apiRouter = require('./routes/api');
 
 
-//var auth = require('./middlewares/auth');
+var auth = require('./middlewares/auth');
 
 var app = express();
-/*
+
 app.use(session({
   secret: '2C44-4D44-WppQ38S',
   resave: true,
   saveUninitialized: false,
   cookie: { maxAge: 60000 }
 }));
-*/
 
 // view engine setup - tambien tipo de archivos
 app.set('views', path.join(__dirname, 'views'));
@@ -48,7 +47,7 @@ app.use('/api', apiRouter);
 
 app.use('/login', loginRouter);
 
-//app.use('/', auth, indexRouter);
+app.use('/', auth, indexRouter);
 
 
 // catch 404 and forward to error handler
